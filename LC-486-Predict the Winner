@@ -1,0 +1,67 @@
+recursion + memoization = top-down DP
+
+Code : 
+
+Without memoization :
+
+class Solution {
+    public boolean predictTheWinner(int[] nums) {
+        int n = nums.length;
+
+        int sum=0;
+        for(int k=0; k<n; k++){
+            sum+=nums[k];
+        }
+
+        int sum1 = solve(nums, 0, n-1);
+
+        return sum1>=(sum-sum1);
+    }
+
+    int solve(int[] nums, int i, int j){
+        if(i>j) return 0;
+
+        if(i==j) return nums[i];
+
+        int take_i = nums[i] + Math.min((solve(nums, i+2, j)), (solve(nums, i+1, j-1)));
+        int take_j = nums[j] + Math.min((solve(nums, i, j-2)), (solve(nums, i+1, j-1)));
+
+        return Math.max(take_i, take_j);
+    }
+}
+
+With memoization
+
+class Solution {
+    int[][] t = new int[23][23];
+
+    public boolean predictTheWinner(int[] nums) {
+        int n = nums.length;
+
+        int sum=0;
+        for(int k=0; k<n; k++){
+            sum+=nums[k];
+        }
+
+        for (int i = 0; i < 23; i++) {
+            Arrays.fill(t[i], -1);
+        }
+
+        int sum1 = solve(nums, 0, n-1);
+
+        return sum1>=(sum-sum1);
+    }
+
+    int solve(int[] nums, int i, int j){
+        if(i>j) return 0;
+
+        if(i==j) return nums[i];
+
+        if(t[i][j]!=-1) return t[i][j];
+
+        int take_i = nums[i] + Math.min((solve(nums, i+2, j)), (solve(nums, i+1, j-1)));
+        int take_j = nums[j] + Math.min((solve(nums, i, j-2)), (solve(nums, i+1, j-1)));
+
+        return t[i][j]=Math.max(take_i, take_j);
+    }
+}
