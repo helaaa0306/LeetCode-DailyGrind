@@ -1,0 +1,15 @@
+Got more and more tle, take a look at complexity and try to derive the formula
+
+Code :-
+
+class Solution {
+    public long maximumValue(int n, int s, int m) {
+        if(n == 1) return s;
+
+        long k = n/2;
+        
+        long max = s + m + (k-1)*(long)(m-1);
+         
+        return max;
+    }
+}

@@ -1,0 +1,57 @@
+2 methods
+
+1) Frequency count array
+
+Code :-
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int n = s.length()+1;
+        int[] occ1 = new int[26];
+
+        for(int i=0; i<n-1; i++){
+            char c = s.charAt(i);
+            occ1[c-'a']++;
+        }
+
+        int[] occ2 = new int[26];
+
+        for(int i=0; i<n; i++){
+            char c = t.charAt(i);
+            occ2[c-'a']++;
+        }
+
+        for(int i=0; i<26; i++){
+            if(occ1[i]!=occ2[i]){
+                char ch = (char)('a'+i);
+                return ch;
+            }
+        }
+
+        return 'z';
+    }
+}
+
+
+
+
+2) Ex-or operator
+
+Code :-
+
+class Solution {
+    public char findTheDifference(String s, String t) {
+        int n = s.length()+1;
+        char ans = 0;
+
+        for(int i=0; i<n-1; i++){
+            ans^=s.charAt(i);
+        }
+
+        for(int i=0; i<n; i++){
+            ans^=t.charAt(i);
+        }
+
+        return ans;
+        
+    }
+}

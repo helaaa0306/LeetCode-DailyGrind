@@ -1,0 +1,29 @@
+Logic was good
+
+Code:-
+
+class Solution {
+    final long MOD = 1_000_000_007L;
+    
+    public int minAdjacentSwaps(int[] nums, int a, int b) {
+        int n = nums.length;
+        int cnt1=0, cnt2=0, cnt3=0;
+        long res = 0;
+
+        for(int i=0; i<n; i++){
+            if(nums[i]<a){
+                res += cnt2+cnt3;
+                cnt1++;
+            }else if(nums[i]>b){
+                
+                cnt3++;
+            }else{
+                res+=cnt3;
+                cnt2++;
+            }
+        }
+
+
+        return (int)(res%MOD);
+    }
+}
