@@ -1,0 +1,91 @@
+Work on intuition
+
+Code :
+
+class Solution {
+    public String smallestPalindrome(String s, int k) {
+        int n = s.length();
+
+        char mid = ' ';
+
+        if (n % 2 == 1) {
+            mid = s.charAt(n / 2);
+        }
+
+        int[] cnt = new int[26];
+
+        for (int i = 0; i < n; i++) {
+            if (n % 2 == 1 && i == n / 2)
+                continue;
+
+            cnt[s.charAt(i) - 'a']++;
+        }
+
+        for (int i = 0; i < 26; i++) {
+            cnt[i] /= 2;
+        }
+
+        StringBuilder half = new StringBuilder();
+
+        for (int pos = 0; pos < n / 2; pos++) {
+            boolean placed = false;
+
+            for (int c = 0; c < 26; c++) {
+                if (cnt[c] > 0) {
+                    cnt[c]--;
+
+                    long ways = 1;
+                    long letters = 0;
+                    for (int j = 0; j < 26; j++)
+                        letters += cnt[j];
+
+                    long remaining = letters;
+                    for (int j = 0; j < 26; j++) {
+                        if (cnt[j] > 0) {
+                            ways *= nCr(remaining, cnt[j], k);
+                            remaining -= cnt[j];
+                        }
+                        if (ways >= k)
+                            break;
+                    }
+
+                    if (ways >= k) {
+                        half.append((char) ('a' + c));
+                        placed = true;
+                        break;
+                    } else {
+                        k -= ways;
+                        cnt[c]++;
+                    }
+                }
+            }
+
+            if (!placed)
+                return "";
+        }
+
+        StringBuilder rev = new StringBuilder(half);
+        rev.reverse();
+
+        if (mid != ' ')
+            half.append(mid);
+
+        return half.toString() + rev.toString();
+    }
+
+    long nCr(long n, long r, long k) {
+        long res = 1;
+
+        r = Math.min(r, n - r);
+
+        for (int i = 1; i <= r; i++) {
+            res = res * (n - r + i) / i;
+
+            if (res >= k)
+                return k;
+        }
+
+        return res;
+    }
+
+}

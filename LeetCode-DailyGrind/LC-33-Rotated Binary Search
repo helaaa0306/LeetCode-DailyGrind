@@ -1,0 +1,87 @@
+Method 1 : by taking pivot 
+
+Code:-
+class Solution {
+    public int search(int[] nums, int target) {
+        int pivot = pivot(nums);
+
+        if (pivot == -1) {
+            return search(target, nums, 0, nums.length - 1);
+        }
+
+        if (nums[pivot] == target)
+            return pivot;
+
+        if(target>=nums[0]) return search(target, nums, 0, pivot);
+        else return search(target, nums, pivot+1, nums.length-1);
+
+
+    }
+
+    int search(int target, int[] arr, int s, int e) {
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+            if (arr[mid] == target)
+                return mid;
+
+            if (arr[mid] < target)
+                s = mid + 1;
+            else
+                e = mid - 1;
+
+        }
+        return -1;
+    }
+
+    int pivot(int[] nums) {
+        int s = 0;
+        int e = nums.length - 1;
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+            if (mid < e && nums[mid] > nums[mid + 1])
+                return mid;
+            if (mid > s && nums[mid] < nums[mid - 1])
+                return mid - 1;
+
+            if (nums[mid] >= nums[s])
+                s = mid + 1;
+            else
+                e = mid - 1;
+        }
+        return -1;
+    }
+}
+
+
+Method 2 : by recursion
+
+Code :-
+
+class Solution {
+    public int search(int[] nums, int target) {
+        int s=0;
+        return binarySearch(nums, target, s, nums.length-1);
+    }
+
+    int binarySearch(int[] nums, int target, int s, int e){
+        if(s>e) return -1;
+
+        int mid = s+(e-s)/2;
+
+        if(nums[mid]==target) return mid;
+
+        if(nums[s]<=nums[mid]){
+            if(target>=nums[s] && target<=nums[mid]){
+                return binarySearch(nums, target, s, mid-1);
+            }else{
+                return binarySearch(nums, target, mid+1, e);
+            }
+        }
+
+        if(target>=nums[mid] && target<=nums[e]){
+            return binarySearch(nums, target, mid+1, e);
+        }else{
+            return binarySearch(nums, target, s, mid-1);
+        }
+    }
+}

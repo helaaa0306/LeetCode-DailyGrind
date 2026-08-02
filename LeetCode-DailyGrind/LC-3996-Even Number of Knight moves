@@ -1,0 +1,12 @@
+Analyze the statement
+
+Code :-
+
+class Solution {
+    public boolean canReach(int[] start, int[] target) {
+        
+        int diff = start[0]+start[1] - target[0]-target[1];
+
+        return diff%2==0;
+    }
+}
