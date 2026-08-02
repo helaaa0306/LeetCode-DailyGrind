@@ -1,6 +1,4 @@
-Acknowledge the problem correctly 
-
-Code :-
+//Acknowledge the problem correctly 
 
 class Solution {
     public int maxActiveSectionsAfterTrade(String s) {

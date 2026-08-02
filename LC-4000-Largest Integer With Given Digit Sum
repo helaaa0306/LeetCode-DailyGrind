@@ -1,6 +1,4 @@
-Don't make silly mistakes 
-
-Code :
+//Don't make silly mistakes 
 
 class Solution {
     public int largestInteger(int n, int s) {

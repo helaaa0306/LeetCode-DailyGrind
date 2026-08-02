@@ -1,8 +1,6 @@
-recursion + memoization = top-down DP
+//recursion + memoization = top-down DP
 
-Code : 
-
-Without memoization :
+//Without memoization :
 
 class Solution {
     public boolean predictTheWinner(int[] nums) {
@@ -30,7 +28,7 @@ class Solution {
     }
 }
 
-With memoization
+//With memoization
 
 class Solution {
     int[][] t = new int[23][23];
@@ -66,8 +64,8 @@ class Solution {
     }
 }
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Another technique : 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Another technique : 
 
 class Solution {
     int[][] t = new int[23][23];

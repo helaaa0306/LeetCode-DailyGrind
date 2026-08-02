@@ -1,6 +1,4 @@
-Greedy approach 
-
-Code :-
+//Greedy approach 
 
 class Solution {
     public int minimumPushes(String w) {

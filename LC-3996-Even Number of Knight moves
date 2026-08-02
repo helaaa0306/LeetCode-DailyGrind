@@ -1,6 +1,4 @@
-Analyze the statement
-
-Code :-
+//Analyze the statement
 
 class Solution {
     public boolean canReach(int[] start, int[] target) {

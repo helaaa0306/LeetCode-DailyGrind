@@ -1,6 +1,4 @@
-Trees are not still prepared well
-
-Code :-
+//Trees are not still prepared well
 
 class Solution {
     public boolean canReach(int[] start, int[] target) {

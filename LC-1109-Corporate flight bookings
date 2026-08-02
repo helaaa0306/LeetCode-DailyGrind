@@ -1,6 +1,4 @@
-Line sweep method
-
-Code:-
+//Line sweep method
 
 class Solution {
     public int[] corpFlightBookings(int[][] bookings, int n) {

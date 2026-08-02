@@ -1,6 +1,6 @@
-Observe the damnnn probelm 
+//Observe the damnnn probelm 
 
-1) Game approach :
+//Game approach :
 
 class Solution {
     int[][] t = new int[501][501];
@@ -31,7 +31,7 @@ class Solution {
 
 
 
-2) Observation 
+//Observation 
 
 class Solution {
     public boolean stoneGame(int[] piles) {

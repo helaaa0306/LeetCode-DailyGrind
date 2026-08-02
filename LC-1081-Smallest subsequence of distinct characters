@@ -1,6 +1,4 @@
-Greedy one
-
-Code :-
+//Greedy one
 
 class Solution {
     public String smallestSubsequence(String s) {

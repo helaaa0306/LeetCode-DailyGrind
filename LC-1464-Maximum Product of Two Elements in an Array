@@ -1,6 +1,4 @@
-Code :-
-
-1) class Solution {
+class Solution {
     public int maxProduct(int[] nums) {
         int max1=0, max2=0;
 
@@ -19,7 +17,7 @@ Code :-
     }
 }
 
-2) class Solution {
+class Solution {
     public int maxProduct(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;

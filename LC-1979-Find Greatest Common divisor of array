@@ -1,6 +1,4 @@
-Easy marked, straigh-forward problem 
-
-Code :-
+//Easy marked, straigh-forward problem 
 
 class Solution {
     public int findGCD(int[] nums) {

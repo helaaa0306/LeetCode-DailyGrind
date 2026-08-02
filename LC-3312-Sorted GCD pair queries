@@ -1,6 +1,4 @@
-Have to work on intuition more, Hard marked
-
-Code :-
+//Have to work on intuition more, Hard marked
 
 class Solution {
     public int[] gcdValues(int[] nums, long[] queries) {

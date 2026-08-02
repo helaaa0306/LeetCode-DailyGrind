@@ -1,6 +1,4 @@
-Have to work on strings
-
-Code :-
+//Have to work on strings
 
 class Solution {
     public String smallestPalindrome(String s) {

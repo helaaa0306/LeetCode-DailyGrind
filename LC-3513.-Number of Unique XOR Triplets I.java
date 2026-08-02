@@ -1,6 +1,4 @@
-Do mathematical analysis
-
-Code :-
+//Do mathematical analysis
 
 class Solution {
     public int uniqueXorTriplets(int[] nums) {

@@ -1,6 +1,4 @@
-Don't confuse in rows and cols
-
-Code :-
+//Don't confuse in rows and cols
 
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {

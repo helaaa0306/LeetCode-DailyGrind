@@ -1,6 +1,5 @@
-Method 1 : by taking pivot 
+//Method 1 : by taking pivot 
 
-Code:-
 class Solution {
     public int search(int[] nums, int target) {
         int pivot = pivot(nums);
@@ -53,11 +52,9 @@ class Solution {
 }
 
 
-Method 2 : by recursion
+//Method 2 : by recursion
 
-Code :-
-
-class Solution {
+class Solution2 {
     public int search(int[] nums, int target) {
         int s=0;
         return binarySearch(nums, target, s, nums.length-1);

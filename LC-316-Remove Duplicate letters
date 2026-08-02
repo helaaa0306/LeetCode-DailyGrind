@@ -1,6 +1,4 @@
-Greedy
-
-Code :-
+//Greedy
 
 class Solution {
     public String removeDuplicateLetters(String s) {

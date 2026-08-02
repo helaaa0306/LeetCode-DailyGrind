@@ -1,6 +1,4 @@
-Logic was good
-
-Code:-
+//Logic was good
 
 class Solution {
     final long MOD = 1_000_000_007L;

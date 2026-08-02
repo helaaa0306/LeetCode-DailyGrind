@@ -1,6 +1,4 @@
-Don't think too much on a single problem
-
-Code :-
+//Don't think too much on a single problem
 
 class Solution {
     public String rearrangeString(String s, char x, char y) {

@@ -1,6 +1,4 @@
-Work on intuition
-
-Code :
+//Work on intuition
 
 class Solution {
     public String smallestPalindrome(String s, int k) {

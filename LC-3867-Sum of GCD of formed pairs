@@ -1,6 +1,5 @@
-Straightforward problem - Medium marked 
+//Straightforward problem - Medium marked 
 
-Code :-
 
 class Solution {
     public long gcdSum(int[] nums) {

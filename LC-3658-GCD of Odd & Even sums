@@ -1,6 +1,5 @@
-Easy Marked 2 solutions
-
-1) 
+//Easy Marked 2 solutions
+ 
 class Solution {
     public int gcdOfOddEvenSums(int n) {
         long sumOdd = n*n;
@@ -14,7 +13,8 @@ class Solution {
     }
 }
 
-2)
+
+
 class Solution {
     public int gcdOfOddEvenSums(int n) {
         return n;

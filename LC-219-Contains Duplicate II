@@ -1,4 +1,4 @@
-1) Sliding window
+//Sliding window
 
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
@@ -24,7 +24,9 @@ class Solution {
     }
 }
 
-2)Hashmap
+
+
+//Hashmap
 
 class Solution {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
