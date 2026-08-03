@@ -1,0 +1,49 @@
+//double memoization
+
+class Solution {
+    Integer[][] memoMax;
+    Integer[][] memoMin;
+
+    public int stoneGameII(int[] piles) {
+        int n = piles.length;
+
+        memoMax = new Integer[n + 1][n + 1];
+        memoMin = new Integer[n + 1][n + 1];
+
+        return solve(0, 1, piles, 1);
+    }
+
+    int solve(int i, int p, int[] pile, int M){
+        int n = pile.length;
+
+        if(i>=n) return 0;
+
+        M = Math.min(M, n); 
+
+        if (p == 1 && memoMax[i][M] != null) return memoMax[i][M];
+        if (p == 0 && memoMin[i][M] != null) return memoMin[i][M];
+
+        int stone = 0;
+        int res = (p == 1) ? 0 : Integer.MAX_VALUE;
+
+        for(int x=1; x<=2*M; x++){
+            if(i+x-1 >= n) break;
+
+            stone+=pile[i+x-1];
+            
+            int nextM = Math.min(Math.max(M, x), n);
+
+            if (p == 1) {
+                res = Math.max(res, stone + solve(i + x, 0, pile, nextM));
+            } else {
+                res = Math.min(res, solve(i + x, 1, pile, nextM));
+            }
+        }
+
+        if (p == 1) memoMax[i][M] = res;
+        else memoMin[i][M] = res;
+
+        return res;
+
+    }
+}
