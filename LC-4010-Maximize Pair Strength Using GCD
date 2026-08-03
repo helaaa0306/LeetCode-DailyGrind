@@ -1,0 +1,23 @@
+//take a loot at overflow
+
+class Solution {
+    public long maxPairStrength(int[] nums) {
+        int n = nums.length;
+        long max = 0;
+
+        for(int i=0; i<n ; i++){
+            for(int j = i+1; j<n; j++){
+                long g = gcd(nums[i], nums[j]);
+                long s = ((long)nums[i]*nums[j])/(g*g);
+
+                max = Math.max(max, s);
+            }
+        }
+
+        return max;
+    }
+
+    long gcd(int a, int b){
+        return b==0 ? (long)a : gcd(b, a%b);
+    }
+}
