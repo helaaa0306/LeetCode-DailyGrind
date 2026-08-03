@@ -1,0 +1,17 @@
+//Iterations should be done properly
+
+class Solution {
+    public int sumOfGoodIntegers(int n, int k) {
+        int l = Math.max(0, n - k);
+        int h = n+k;
+        int sum = 0;
+
+        while(l<=h){
+            if((l&n)==0) sum+=l;
+
+            l++;
+        }
+
+        return sum;
+    }
+}
