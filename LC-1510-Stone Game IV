@@ -1,0 +1,58 @@
+//Recursion + Memoization
+
+class Solution {
+    int[] t;
+    
+    public boolean winnerSquareGame(int n) {
+        t = new int[n+1];
+        
+        Arrays.fill(t, -1);
+        
+       return solve(n) ;
+    }
+    
+    boolean solve(int n){
+        if(n==0) return false;
+        
+        if(t[n]!=-1) return t[n] == 1 ? true : false;
+        
+        for(int i=1;i*i<=n;i++){
+            if(solve(n-i*i)==false) {
+                t[n]=1;
+                return true;
+                
+            }
+        }
+        t[n] = 0;
+        return false;
+    }
+}
+
+
+//DP 
+
+class Solution {
+    boolean[] t;
+
+    public boolean winnerSquareGame(int n) {
+        t = new boolean[n + 1];
+
+        Arrays.fill(t, false);
+
+        t[0] = false;
+
+        for (int k = 1; k < n+1; k++) {
+            for (int i = 1; i * i <= k; i++) {
+                if (t[k-i*i] == false) {
+                    t[k] = true;
+                    break;
+                }
+            }
+        }
+
+        
+        return t[n] == true;
+
+    }
+
+}
