@@ -20,3 +20,38 @@ class Solution {
         return maxLen;
     }
 }
+
+
+//Another approach
+
+class Solution {
+    public int maxSubarrayLength(int[] nums, int k) {
+        int n = nums.length;
+        HashMap<Integer, Integer> freq = new HashMap<>();
+        int i=0, j=0, result=0;
+
+        int culprit = 0;
+
+        while(j<n){
+            freq.put(nums[j], (freq.getOrDefault(nums[j],0)+1));
+
+            if(freq.get(nums[j])==k+1) culprit++;
+
+            if(culprit>0){
+                freq.put(nums[i], freq.get(nums[i])-1);
+
+                if(freq.get(nums[i])==k) culprit--;
+
+                i++;
+            }
+
+            if(culprit==0){
+                result = Math.max(result, j-i+1);
+            }
+
+            j++;
+        }
+
+        return result;
+    }
+}
