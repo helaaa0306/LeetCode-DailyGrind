@@ -1,0 +1,25 @@
+class Solution {
+    public int largestInteger(int[] nums, int k) {
+        int n = nums.length;
+
+        if (k == n) {
+            int max = nums[0];
+            for (int v : nums) max = Math.max(max, v);
+            return max;
+        }
+
+        int[] count = new int[51];
+        for (int v : nums) count[v]++;
+
+        if (k == 1) {
+            int ans = -1;
+            for (int v : nums) if (count[v] == 1) ans = Math.max(ans, v);
+            return ans;
+        }
+
+        int x = nums[0], y = nums[n - 1];
+        int ansX = (count[x] == 1) ? x : -1;
+        int ansY = (count[y] == 1) ? y : -1;
+        return Math.max(ansX, ansY);
+    }
+}
