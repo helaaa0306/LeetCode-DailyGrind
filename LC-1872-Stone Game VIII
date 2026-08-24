@@ -1,0 +1,30 @@
+class Solution {
+    int[] t = new int[100001];
+    int n ;
+
+    public int stoneGameVIII(int[] stones) {
+        n = stones.length;
+
+        Arrays.fill(t, -1000000000);
+
+        int[] prefix = new int[n];
+        prefix[0] = stones[0];
+
+        for(int i=1; i<n; i++){
+            prefix[i] = prefix[i-1] + stones[i];
+        }
+
+        return solve(1, prefix);
+    }
+
+    int solve(int i, int[] p){
+        if(t[i]!=-1000000000) return t[i];
+
+        if(i==n-1) return t[i] = p[n-1];
+    
+        int take = p[i] - solve(i+1, p);
+        int skip = solve(i+1, p);
+
+        return t[i] = Math.max(take, skip);
+    }
+}
