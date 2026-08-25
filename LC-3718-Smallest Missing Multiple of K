@@ -1,0 +1,62 @@
+//Using for loop
+
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        int n = nums.length;
+        
+        Arrays.sort(nums);
+        int x = k;
+        
+        for(int i=0; i<n; i++){
+            if(k==nums[i]){
+                k+=x;
+            }
+        }
+        
+        return k;
+    }
+}
+
+//--------------------------------------------------------------------------------
+//Using Hashset
+
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        int n = nums.length;
+
+        Set<Integer> store = new HashSet<>();
+
+        int x = k;
+
+        for(int i=0; i<n; i++){
+            store.add(nums[i]);
+        }
+
+        while(store.contains(k)) k+=x;
+
+        return k;
+    }
+}
+
+//--------------------------------------------------------------------------------------
+//Optimised Hashset
+
+class Solution {
+    public int missingMultiple(int[] nums, int k) {
+        int n = nums.length;
+
+        Set<Integer> store = new HashSet<>();
+
+        int x = k;
+
+        for(int i=0; i<n; i++){
+            if(nums[i]%k==0) store.add(nums[i]);
+        }
+
+        for(int i=0; i<=store.size(); i++){
+            if(store.contains(k)) k+=x;
+        }
+
+        return k;
+    }
+}
