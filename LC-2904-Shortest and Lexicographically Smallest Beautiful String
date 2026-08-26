@@ -1,0 +1,67 @@
+//Brute force
+
+class Solution {
+    public String shortestBeautifulSubstring(String s, int k) {
+        int n = s.length();
+        String res;
+
+        for (int len = k; len <= n; len++) {
+            res = "";
+
+            for (int t = 0; t <= n - len; t++) {
+                String temp = s.substring(t, t + len);
+
+                int o = 0;
+                for (int i = 0; i < len; i++) {
+                    if (temp.charAt(i) == '1')
+                        o++;
+                }
+
+                if (o == k) {
+                    if (res.isEmpty() || temp.compareTo(res) < 0) {
+                        res = temp;
+                    }
+                }
+            }
+
+            if (!res.isEmpty())
+                return res;
+        }
+
+        return "";
+    }
+}
+
+//Sliding Window
+
+class Solution {
+    public String shortestBeautifulSubstring(String s, int k) {
+        int n = s.length();
+        int i=0;
+        int ones = 0;
+        String res = "";
+
+        for (int j = 0; j < n; j++) {
+            if(s.charAt(j)=='1') ones++;
+
+            if(i>=n) {
+                return res;
+            }
+
+            while(i <= j && (ones>k || s.charAt(i)=='0')){
+                if(s.charAt(i)=='1') ones--;
+
+                i++;
+            }
+
+            if(ones==k){
+                String temp = s.substring(i, j+1);
+
+                if(res.isEmpty() || res.length()>temp.length() || (j - i + 1 == res.length() && temp.compareTo(res) < 0)){
+                    res = temp;
+                }
+            }
+        }
+
+        return res;
+}}
